@@ -28,7 +28,7 @@ model Product {
   image          String
   sideDishes     SideDishe[]
   OrderedProduct OrderedProduct[]
-  Category       String
+  category       String
 }
 
 model OrderedProduct {
