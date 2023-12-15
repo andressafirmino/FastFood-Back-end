@@ -17,6 +17,7 @@ model Order {
   payment     String
   products    OrderedProduct[]
   client      String
+  isFinished  Boolean
 }
 
 model Product {
@@ -24,8 +25,10 @@ model Product {
   name           String
   price          Int
   description    String
+  image          String
   sideDishes     SideDishe[]
   OrderedProduct OrderedProduct[]
+  category       String
 }
 
 model OrderedProduct {
@@ -43,6 +46,7 @@ model SideDishe {
   name            String
   price           Int
   description     String
+  image           String
   Product         Product?          @relation(fields: [productId], references: [id])
   productId       Int?
   sideDishesOrder SideDishesOrder[]
