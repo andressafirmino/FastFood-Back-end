@@ -7,6 +7,13 @@ async function getAllProducts(req: Request, res: Response) {
   res.status(httpStatus.OK).send(products);
 }
 
+async function getProductsByCategory(req: Request, res: Response) {
+  const { category } = req.params;
+  const products = await productService.getProductsByCategory(category);
+  res.status(httpStatus.OK).send(products);
+}
+
 export const productController = {
   getAllProducts,
+  getProductsByCategory,
 };
