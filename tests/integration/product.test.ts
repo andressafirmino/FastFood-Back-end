@@ -21,6 +21,16 @@ describe('testing for product routes', () => {
       const { status, body } = await server.get('/');
 
       expect(status).toBe(httpStatus.OK);
+      expect(body.categories).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            id: expect.any(Number),
+            name: expect.any(String),
+            image: expect.any(String),
+            category: expect.any(String),
+          }),
+        ]),
+      );
       expect(body.products).toEqual(
         expect.arrayContaining([
           expect.objectContaining({
