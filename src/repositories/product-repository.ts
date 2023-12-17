@@ -9,6 +9,13 @@ async function getAllProducts() {
   return { categories, products, sideDish };
 }
 
+async function getProductsByCategory(category: string) {
+  return await prisma.product.findMany({
+    where: { category },
+  });
+}
+
 export const productRepository = {
   getAllProducts,
+  getProductsByCategory,
 };
