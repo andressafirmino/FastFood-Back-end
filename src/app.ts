@@ -1,6 +1,7 @@
 import express, { Request, Response, json } from 'express';
 import cors from 'cors';
 import httpStatus from 'http-status';
+import { productRouter } from './routers';
 
 const app = express();
 
@@ -10,5 +11,6 @@ app.use(json());
 app.get('/health', (req: Request, res: Response) => {
   return res.status(httpStatus.OK).send('Health check successful. Operating server.');
 });
+app.use('/', productRouter);
 
 export default app;

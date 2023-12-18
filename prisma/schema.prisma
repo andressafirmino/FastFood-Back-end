@@ -15,9 +15,9 @@ model Order {
   observation String?
   amount      Int
   payment     String
-  products    OrderedProduct[]
   client      String
   isFinished  Boolean
+  products    OrderedProduct[]
 }
 
 model Product {
@@ -26,9 +26,9 @@ model Product {
   price          Int
   description    String
   image          String
+  category       String
   sideDishes     SideDishe[]
   OrderedProduct OrderedProduct[]
-  category       String
 }
 
 model OrderedProduct {
@@ -59,4 +59,11 @@ model SideDishesOrder {
   sideDishesId     Int
   orderedProduct   OrderedProduct @relation(fields: [orderedProductId], references: [id])
   orderedProductId Int
+}
+
+model Categories {
+  id       Int    @id @default(autoincrement())
+  name     String
+  image    String
+  category String
 }

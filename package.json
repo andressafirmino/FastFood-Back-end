@@ -9,7 +9,7 @@
     "seed": "prisma db seed",
     "dev": "nodemon src/server.ts",
     "start": "prisma migrate deploy && node dist/src/server.js",
-    "test": "dotenv -e .env.test prisma migrate deploy & dotenv -e .env.test jest -- -i",
+    "test": "dotenv -e .env.test prisma migrate deploy && dotenv -e .env.test jest -- -i",
     "test:coverage": "npm run test -- --coverage",
     "lint": "eslint .",
     "prepare": "husky install"
